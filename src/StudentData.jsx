@@ -1,7 +1,7 @@
 import React,  {useEffect, useState} from 'react'
 
 import StudentName from './StudentName'
-import axios from'axios'
+import axios from 'axios'
 function StudentData() {
     const [user, setuser] = useState([])
     useEffect(() => {
