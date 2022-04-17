@@ -3,7 +3,7 @@ import Assignmentlist from "./Assignmentlist";
 import FakeDataA from "./FakeDataA";
 function AssignmentRow () {
   return(
-    <div>
+    <div class="mb-40">
       
       {FakeDataA.map(eachObj => {
         return (

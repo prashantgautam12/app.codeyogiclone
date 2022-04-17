@@ -7,8 +7,9 @@ function Lectures () {
       <div class="w-40 h-screen p-20">
         <h1 class="text-2xl text-gray-500">LECTURES</h1>
         </div>
-        <div class="grow mt-40">
+        <div class=" flex flex-col grow mt-40">
         <LecturesRow></LecturesRow>
+        <div></div>
        </div>
        <div class="w-40 h-screen"></div>
        </div>

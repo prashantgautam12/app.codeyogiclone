@@ -4,7 +4,9 @@ import Lectures from './Lectures'
 import Profile from "./Profile";
 import Mainlayout from './Mainlayout'
 import Quiz from "./Quiz";
+import StudentInfo from "./StudentInfo";
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           <Route path="assignment" element={<Assignment />} />
           <Route path="lectures" element={<Lectures />} /> 
           <Route path="profile" element={<Profile />} />
+          <Route path="student" element={<StudentInfo />} />
           </Route>
           <Route path="quiz" element={<Quiz />} /> 
         </Routes>
