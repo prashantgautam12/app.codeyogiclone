@@ -1,19 +1,19 @@
 import React from 'react' 
-function Assignmentlist (props) {
+function Assignmentlist ({users}) {
   return(
      <div className=" mb-8 grow shadow-lg">
     <div className="flex flex-row justify-between items-center">
       <div  className="space-y-4">
-    <h1 className="font-bold">{props.title}<span className="ml-4 text-gray-500">{props.date}</span></h1>
-    <h1 className="ml-4 text-red-500">{props.duedate}</h1>
+    <h1 className="font-bold">#{users.id}{users.title}<span className="ml-4 text-gray-500">({users.created_at})</span></h1>
+    <h1 className="ml-4 text-red-500">{users.due_date}</h1>
     </div>
     <div>
-      <h1 className="mt-8 text-green-300 font-bold">{props.status}</h1>
+      <h1 className="mt-8 text-green-300 font-bold"></h1>
       </div>
     </div>
     <div className="mt-20 flex flex-row justify-between">
-      <h1 className="ml-20 font-bold text-green-400">{props.submit}</h1>
-       <h1 className="mr-20 font-bold text-indigo-500">{props.check}</h1>
+      <h1 className="ml-20 font-bold text-green-400">Submit</h1>
+       <h1 className="mr-20 font-bold text-indigo-500">See-Your-Submission</h1>
       </div>
     </div>
     )

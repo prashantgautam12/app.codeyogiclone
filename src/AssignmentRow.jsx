@@ -1,24 +1,24 @@
-import React from 'react'
-import Assignmentlist from "./Assignmentlist";
-import FakeDataA from "./FakeDataA";
-function AssignmentRow () {
-  return(
-    <div class="mb-40">
-      
-      {FakeDataA.map(eachObj => {
-        return (
-          <Assignmentlist
-          title={eachObj.title}
-          check={eachObj.check}
-          status={eachObj.status}
-          submit={eachObj.submit}
-          date={eachObj.date}
-          duedate={eachObj.duedate} >
-         </Assignmentlist>
-        )
-      })
-      }
-     </div> 
-  )
-} 
+import React,  {useEffect, useState} from 'react'
+import Assignmentlist from './Assignmentlist'
+import axios from 'axios'
+function AssignmentRow() {
+    const [users, setusers] = useState([])
+    useEffect(() => {
+            const token = axios.get("https://api.codeyogi.io/batches/1/assignments", {withCredentials:true})
+            token.then((response) => {
+                setusers(response.data)
+            })
+        }, []
+    )
+    return(
+        <div>
+            {users.map(e => {
+                return(
+                    < Assignmentlist users={e} />
+                )
+            } )}
+        </div>
+    )
+
+}
 export default AssignmentRow;

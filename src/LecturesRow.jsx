@@ -1,23 +1,24 @@
-import React from 'react'
-import Lecturelist from "./Lecturelist";
-import FakeDataL from "./FakeDataL";
-function LecturesRow () {
-  return(
-    <div>
-      
-      {FakeDataL.map(eachObj => {
-        return (
-          <Lecturelist title={eachObj.title}
-           duration={eachObj.duration}
-           purpose={eachObj.purpose}
-           topic={eachObj.topic} 
-           date={eachObj.date}>
-          </Lecturelist>
-        )
-      }
-      )
-      }
-     </div> 
-  )
-} 
+import React,  {useEffect, useState} from 'react'
+import Lecturelist from './Lecturelist'
+import axios from 'axios'
+function LecturesRow() {
+    const [userss, setuserss] = useState([])
+    useEffect(() => {
+            const token = axios.get("https://api.codeyogi.io/batches/1/sessions", {withCredentials:true})
+            token.then((response) => {
+                setuserss(response.data)
+            })
+        }, []
+    )
+    return(
+        <div>
+            {userss.map(e => {
+                return(
+                    < Lecturelist userss={e} />
+                )
+            } )}
+        </div>
+    )
+
+}
 export default LecturesRow;
