@@ -1,7 +1,10 @@
 import React from 'react' 
+import { useNavigate} from 'react-router-dom'
 function Assignmentlist ({users}) {
+  const navigate = useNavigate();
+
   return(
-     <div className=" mb-8 grow shadow-lg">
+     <div onClick={() => navigate(`/assignment/${users.id}/details`)} className=" mb-8 grow shadow-lg">
     <div className="flex flex-row justify-between items-center">
       <div  className="space-y-4">
     <h1 className="font-bold">#{users.id}{users.title}<span className="ml-4 text-gray-500">({users.created_at})</span></h1>
