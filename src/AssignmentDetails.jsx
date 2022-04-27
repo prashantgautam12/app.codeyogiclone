@@ -1,6 +1,7 @@
 import React,  {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
+import MDEditor from '@uiw/react-md-editor';
 function AssignmentDetails () {
   const data = useParams();
   const [details, setdetails] = useState([])
@@ -30,10 +31,10 @@ function AssignmentDetails () {
   <h3 class="mt-6">{details.due_date}</h3>
   </div>
   </div>
-  <div class="border-y-2 h-28">
+  <div class="border-y-2 ">
   <div class="flex space-x-40">
   <h1 class="mt-6">Description</h1>
-  <h3 class="mt-6">{details.description}</h3>
+  <MDEditor.Markdown class="mt-6" source={details.description}/>
   </div>
   </div>
   <button class="p-2 mb-20 mt-4 bg-indigo-500 rounded-md">Submit</button>
