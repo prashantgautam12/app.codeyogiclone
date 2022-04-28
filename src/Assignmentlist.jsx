@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { useNavigate,} from 'react-router-dom'
 import SubmitPopup from './SubmitPopup'
 import axios from 'axios'
+import {DateTime} from "luxon"
 function Assignmentlist ({users}) {
   const [submitpopup, updatesubmitpopup] = useState(false)
   const [submissionLink, updatesubmissionLink] = useState('')
@@ -21,8 +22,10 @@ function Assignmentlist ({users}) {
      <div onClick={() => navigate(`/assignment/${users.id}/details`)} >
     <div className="flex flex-row justify-between items-center">
       <div  className="space-y-4">
-    <h1 className="font-bold">#{users.id}{users.title}<span className="ml-4 text-gray-500">({users.created_at})</span></h1>
-    <h1 className="ml-4 text-red-500">{users.due_date}</h1>
+    <h1 className="font-bold">#{users.id}{users.title}<span className="ml-4 text-gray-500">({DateTime.fromISO(users.created_at).toLocaleString(DateTime.DATETIME_MED)
+})</span></h1>
+    <h1 className="ml-4 text-red-500">Due Date: {DateTime.fromISO(users.due_date).toLocaleString(DateTime.DATETIME_MED)
+}</h1>
     </div>
     <div>
       <h1 className="mt-8 text-green-300 font-bold"></h1>

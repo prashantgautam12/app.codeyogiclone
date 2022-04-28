@@ -2,6 +2,7 @@ import React,  {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import MDEditor from '@uiw/react-md-editor';
+import { DateTime } from "luxon"
 function AssignmentDetails () {
   const data = useParams();
   const [details, setdetails] = useState([])
@@ -12,6 +13,10 @@ function AssignmentDetails () {
           })
       }, []
   )
+  const date = details.due_date
+  const dateobject = DateTime.fromISO(date)
+  const finaldateobject = dateobject.toLocaleString(DateTime.DATETIME_MED)
+
     return(
         <div className="flex grow h-screen overflow-y-scroll">
         <div class="w-40 h-screen p-20">
@@ -28,7 +33,7 @@ function AssignmentDetails () {
   <div class="border-y-2 h-20">
   <div class="flex space-x-44">
   <h1 class="mt-6">Due date</h1>
-  <h3 class="mt-6">{details.due_date}</h3>
+  <h3 class="mt-6">{finaldateobject}</h3>
   </div>
   </div>
   <div class="border-y-2 ">
