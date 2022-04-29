@@ -3,18 +3,27 @@ import { useNavigate,} from 'react-router-dom'
 import SubmitPopup from './SubmitPopup'
 import axios from 'axios'
 import {DateTime} from "luxon"
+import {string} from "yup"
 function Assignmentlist ({users}) {
   const [submitpopup, updatesubmitpopup] = useState(false)
   const [submissionLink, updatesubmissionLink] = useState('')
-  const submitAssignment = () => {
-    axios.put(`http://api.codeyogi.io/${users.id}/submit`, {submissionLink}, {withCredentials:true} )
-
-  }
+  const [isvalidurl, setisvalidurl] = useState('')
   const navigate = useNavigate();
   const onInputchange = (event) => {
     updatesubmissionLink(event.target.value)
   } 
-  
+  const urlvalidater  = () => {
+    const properurl = string().url()
+    const finallink = properurl.isValidSync(submissionLink)
+    const submissionlinkerror = finallink ? "" : "you entered a unvalid url"
+    setisvalidurl(submissionlinkerror)
+  }
+   
+  const submitAssignment = () => {
+    axios.put(`http://api.codeyogi.io/${users.id}/submit`, {submissionLink}, {withCredentials:true} )
+  urlvalidater()
+}
+
 
   return(
     <div className=" mb-8 grow shadow-lg">
@@ -41,7 +50,7 @@ function Assignmentlist ({users}) {
     </div>
     {submitpopup && (<div class="fixed top-0 right-0 h-screen w-screen flex justify-center items-center bg-transparent">
 <div class="w-9/12 h-80 flex flex-col justify-center items-center">
-<SubmitPopup value={submissionLink} onChange={onInputchange} onClick={submitAssignment} type="text"></SubmitPopup>
+<SubmitPopup value={submissionLink} onChange={onInputchange} error={isvalidurl} onClick={submitAssignment} type="text"></SubmitPopup>
 </div>
 </div>)} 
     </div>

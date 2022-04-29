@@ -15,6 +15,7 @@ function SubmitPopup(props) {
 <button class="h-8 w-20 rounded-md bg-indigo-500" onClick={props.onClick}>Submit</button>
 </div>
 </div>
+{props.error && <div className="text-red-500">{props.error}</div>}
 </div>
     )
 }
