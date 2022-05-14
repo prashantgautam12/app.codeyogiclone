@@ -8,6 +8,7 @@ function Assignmentlist ({users}) {
   const [submitpopup, updatesubmitpopup] = useState(false)
   const [submissionLink, updatesubmissionLink] = useState('')
   const [isvalidurl, setisvalidurl] = useState('')
+  const [error, seterror] = useState('')
   const navigate = useNavigate();
   const onInputchange = (event) => {
     updatesubmissionLink(event.target.value)
@@ -16,14 +17,16 @@ function Assignmentlist ({users}) {
     const properurl = string().url()
     const finallink = properurl.isValidSync(submissionLink)
     const submissionlinkerror = finallink ? "" : "you entered a unvalid url"
-    setisvalidurl(submissionlinkerror)
+    seterror(submissionlinkerror)
+    setisvalidurl(finallink)
   }
    
   const submitAssignment = () => {
-    axios.put(`http://api.codeyogi.io/${users.id}/submit`, {submissionLink}, {withCredentials:true} )
-  urlvalidater()
-}
+    urlvalidater()
 
+    axios.put(`http://api.codeyogi.io/${users.id}/submit`, {submissionLink}, {withCredentials:true} )
+    console.log('submit ho gaya',submissionLink)
+  }
 
   return(
     <div className=" mb-8 grow shadow-lg">
@@ -48,11 +51,11 @@ function Assignmentlist ({users}) {
        <h1 className="mr-20 font-bold text-indigo-500">See-Your-Submission</h1>
       </div>
     </div>
-    {submitpopup && (<div class="fixed top-0 right-0 h-screen w-screen flex justify-center items-center bg-transparent">
-<div class="w-9/12 h-80 flex flex-col justify-center items-center">
-<SubmitPopup value={submissionLink} onChange={onInputchange} error={isvalidurl} onClick={submitAssignment} type="text"></SubmitPopup>
-</div>
-</div>)} 
+    {submitpopup && (<div className="fixed h-screen w-screen top-0 right-0"><div class="h-screen w-screen bg-transparent absolute">
+  <div class="h-screen w-screen bg-transparent" onClick={() => updatesubmitpopup(false)}></div>
+ </div>
+  <div class=" h-56 w-96 mx-auto my-auto relative top-40"><SubmitPopup value={submissionLink} onChange={onInputchange} error={error} onClick={submitAssignment} type="text"></SubmitPopup></div>
+</div>  )} 
     </div>
     )
 } 

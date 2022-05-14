@@ -5,7 +5,7 @@ function SubmitPopup(props) {
     return(
         <div>
 <div class="rounded-md bg-gray-300 flex flex-col h-56 w-96">
-  <div className="flex flex-row-reverse"> <button onClick={() => navigate("/")} className="p-1 bg-indigo-300 rounded-md ">back</button> </div>
+  {props.error && <div className="text-red-500 h-6 w-80 rounded-md bg-white">{props.error}</div>}
   <div class=" h-20 flex justify-between  mt-10 border-y-2">
    <h1 class="my-auto">Submission link</h1>
    <input class="h-10 my-auto rounded-md border-2 border-indigo-500" placeholder="submission link" onChange={props.onChange}
@@ -15,7 +15,7 @@ function SubmitPopup(props) {
 <button class="h-8 w-20 rounded-md bg-indigo-500" onClick={props.onClick}>Submit</button>
 </div>
 </div>
-{props.error && <div className="text-red-500">{props.error}</div>}
+
 </div>
     )
 }

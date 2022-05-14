@@ -1,43 +1,52 @@
 const FakeDataA = [
   {
-    title: "#5 Practice Flex-04",
-    date: "(sun 30 Jan 2022)", 
-    duedate: "Due Date: (31 Jan 2022)",
-    status:"Submitted", 
-    submit: "ReSubmit",
-    check: "See-your-Submission"},
+    title: "Name",
+   
+    type: "name",
+    name: "Name"
+  },
   {
-    title: "#4 Practice Flex-03", 
-    date: "(Tue 25 Jan 2022)", 
-    duedate: "Due Date: (25 Jan 2022)",
-    status:"Submitted", 
-    submit: "ReSubmit", 
-    check: "See-your-Submission"
+    title: "Last Name", 
+    type: "name",
+    name: "Last Name"
 },
   {
-    title: "#3 Practice Flex-02", 
-    date: "(Sat 22 Jan 2022)",
-    duedate: "Due Date: (24 Jan 2022)",
-    status:"Submitted", 
-    submit: "ReSubmit",
-    check: "See-your-Submission"
+    title: "E-mail", 
+    type: "email",
+    name: "email"
 },
   {
-    title: "#2 Practice Flex-01",
-    date: "(Thur 20 Jan 2022)",
-    duedate: "Due Date: (22 Jan 2022)", 
-    status:"Submitted", 
-    submit: "ReSubmit",
-    check: "See-your-Submission"
+    title:"Institute",
+    type:"string",
+    name: "Institute"
+    
 },
    {
-    title: "#1 Create a simple HTML Page",
-    date: "(Mon 17 Jan 2022)",
-    duedate: "Due Date: (18 Jan 2022)",
-    status:"Submitted",
-    submit: "ReSubmit", 
-    check: "See-your-Submission"
+    title: "Year Of Pass Out",
+    type:"string",
+    name: "Year Of Pass Out"
    
+  },
+  {
+    title:"Phone Number",
+    type:"number",
+    name: "Phone Number"
+  },
+  {
+    title:"Date Of BIrth",
+    type: "number",
+    name: "Date Of Birth"
+  },
+  {
+    title:"Roll No",
+    type:"number",
+    name: "Roll No"
+
+  },
+  {
+    title:"Branch",
+    type:"string",
+    name: "Branch"
   }
  
 ]

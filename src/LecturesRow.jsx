@@ -14,7 +14,7 @@ function LecturesRow() {
         <div>
             {userss.map(e => {
                 return(
-                    < Lecturelist userss={e} />
+                    < Lecturelist userss={e} key={userss.id}/>
                 )
             } )}
         </div>

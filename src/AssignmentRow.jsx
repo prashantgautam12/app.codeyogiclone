@@ -14,7 +14,7 @@ function AssignmentRow() {
         <div>
             {users.map(e => {
                 return(
-                    < Assignmentlist users={e} />
+                    < Assignmentlist users={e} key={users.id} />
                 )
             } )}
         </div>
