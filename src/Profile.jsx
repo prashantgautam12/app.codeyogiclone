@@ -1,8 +1,7 @@
 import React from 'react'
 import ProfileDatarow from './ProfileDatarow';
-import {useForm} from './ProfileValues'
+
 function Profile () {
-    const {Onsubmit} = useForm()
     return(
 <div className="flex grow h-screen overflow-y-scroll">
         <div class="w-6 h-screen p-20">
@@ -10,7 +9,7 @@ function Profile () {
         </div>
         <div class="grow mt-40">
     <ProfileDatarow />
-            <button onClick={Onsubmit} class="p-2 bg-indigo-500 mt-4 rounded-md ">SUBMIT</button>
+            
        </div>
        <div class="w-6 h-screen mb-4"></div>
        </div>

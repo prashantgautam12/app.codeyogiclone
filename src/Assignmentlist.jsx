@@ -6,28 +6,7 @@ import {DateTime} from "luxon"
 import {string} from "yup"
 function Assignmentlist ({users}) {
   const [submitpopup, updatesubmitpopup] = useState(false)
-  const [submissionLink, updatesubmissionLink] = useState('')
-  const [isvalidurl, setisvalidurl] = useState('')
-  const [error, seterror] = useState('')
   const navigate = useNavigate();
-  const onInputchange = (event) => {
-    updatesubmissionLink(event.target.value)
-  } 
-  const urlvalidater  = () => {
-    const properurl = string().url()
-    const finallink = properurl.isValidSync(submissionLink)
-    const submissionlinkerror = finallink ? "" : "you entered a unvalid url"
-    seterror(submissionlinkerror)
-    setisvalidurl(finallink)
-  }
-   
-  const submitAssignment = () => {
-    urlvalidater()
-
-    axios.put(`http://api.codeyogi.io/${users.id}/submit`, {submissionLink}, {withCredentials:true} )
-    console.log('submit ho gaya',submissionLink)
-  }
-
   return(
     <div className=" mb-8 grow shadow-lg">
     <div>
@@ -54,7 +33,7 @@ function Assignmentlist ({users}) {
     {submitpopup && (<div className="fixed h-screen w-screen top-0 right-0"><div class="h-screen w-screen bg-transparent absolute">
   <div class="h-screen w-screen bg-transparent" onClick={() => updatesubmitpopup(false)}></div>
  </div>
-  <div class=" h-56 w-96 mx-auto my-auto relative top-40"><SubmitPopup value={submissionLink} onChange={onInputchange} error={error} onClick={submitAssignment} type="text"></SubmitPopup></div>
+  <div class=" h-56 w-96 mx-auto my-auto relative top-40"><SubmitPopup  type="text"></SubmitPopup></div>
 </div>  )} 
     </div>
     )

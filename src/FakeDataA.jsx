@@ -8,7 +8,7 @@ const FakeDataA = [
   {
     title: "Last Name", 
     type: "name",
-    name: "Last Name"
+    name: "LastName"
 },
   {
     title: "E-mail", 
@@ -24,23 +24,23 @@ const FakeDataA = [
    {
     title: "Year Of Pass Out",
     type:"string",
-    name: "Year Of Pass Out"
+    name: "YearOfPassOut"
    
   },
   {
     title:"Phone Number",
     type:"number",
-    name: "Phone Number"
+    name: "PhoneNumber"
   },
   {
     title:"Date Of BIrth",
     type: "number",
-    name: "Date Of Birth"
+    name: "DateOfBirth"
   },
   {
     title:"Roll No",
     type:"number",
-    name: "Roll No"
+    name: "RollNo"
 
   },
   {
